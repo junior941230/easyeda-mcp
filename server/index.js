@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // EasyEDA Pro MCP server（stdio）
-// 環境變數：EASYEDA_MCP_PORT（預設 49625）、EASYEDA_MCP_HOST（預設 127.0.0.1）、EASYEDA_MCP_TIMEOUT_MS（預設 30000）
+// 環境變數：EASYEDA_MCP_PORT（預設 18625）、EASYEDA_MCP_HOST（預設 127.0.0.1）、EASYEDA_MCP_TIMEOUT_MS（預設 30000）
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { Bridge } from './bridge.js';
@@ -11,14 +11,14 @@ const log = (msg) => process.stderr.write(`[easyeda-mcp] ${msg}\n`);
 
 const bridge = new Bridge({
 	host: process.env.EASYEDA_MCP_HOST || '127.0.0.1',
-	port: Number(process.env.EASYEDA_MCP_PORT || 49625),
+	port: Number(process.env.EASYEDA_MCP_PORT || 18625),
 	timeoutMs: Number(process.env.EASYEDA_MCP_TIMEOUT_MS || 30000),
 	log,
 });
 await bridge.start();
 
 const server = new McpServer(
-	{ name: 'easyeda-pro', version: '0.1.1' },
+	{ name: 'easyeda-pro', version: '0.1.2' },
 	{
 		instructions: [
 			'這個 server 透過 EasyEDA Pro 內的 bridge 擴充操作 PCB 編輯器。',

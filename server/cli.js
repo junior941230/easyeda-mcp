@@ -2,7 +2,7 @@
 // 命令列直接呼叫 MCP 工具（除錯 / 實機驗證用）
 //   node server/cli.js <tool> ['<json args>'] [<tool2> '<json2>' ...]
 //   node server/cli.js --list
-// 會啟動一個 MCP server（預設埠 49625），等 EasyEDA 擴充連進來後依序執行。
+// 會啟動一個 MCP server（預設埠 18625），等 EasyEDA 擴充連進來後依序執行。
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
 import path from 'node:path';

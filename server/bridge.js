@@ -8,7 +8,7 @@ export class Bridge {
 	/**
 	 * @param {{host?: string, port?: number, timeoutMs?: number, log?: (msg: string) => void}} opts
 	 */
-	constructor({ host = '127.0.0.1', port = 49625, timeoutMs = 30000, log = () => {} } = {}) {
+	constructor({ host = '127.0.0.1', port = 18625, timeoutMs = 30000, log = () => {} } = {}) {
 		this.host = host;
 		this.port = port;
 		this.timeoutMs = timeoutMs;

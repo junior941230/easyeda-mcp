@@ -1,6 +1,6 @@
 {
   "name": "easyeda-mcp",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "description": "MCP server that drives EasyEDA Pro PCB editing through a bridge extension",
   "type": "module",

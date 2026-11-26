@@ -6,7 +6,7 @@
 
 ```
 Claude Code ──stdio──▶ MCP server (server/index.js)
-                          │  ws://127.0.0.1:49625（server 端監聽）
+                          │  ws://127.0.0.1:18625（server 端監聽）
                           ▼
               EasyEDA Pro 內的 bridge 擴充 (extension/)
                           │  eda.pcb_PrimitiveLine.create(...) 等 pro-api
@@ -97,7 +97,11 @@ node server/cli.js pcb_route_track '{"net":"GND","layer":"top","points":[[0,0],[
 
 ## 埠號衝突
 
-同時開兩個 Claude 工作階段時，只有先啟動的 MCP server 能綁到 49625，後啟動的工具會回報 `EADDRINUSE`。後啟動的 server 會每 5 秒重試，先前那個關掉後就自動接手（0.1.1 起）。要兩邊同時用，把其中一個的 `EASYEDA_MCP_PORT` 改掉，並在 EasyEDA「MCP → 設定 server 位址…」改成同一個埠。
+同時開兩個 Claude 工作階段時，只有先啟動的 MCP server 能綁到 18625，後啟動的工具會回報 `EADDRINUSE`。後啟動的 server 會每 5 秒重試，先前那個關掉後就自動接手（0.1.1 起）。要兩邊同時用，把其中一個的 `EASYEDA_MCP_PORT` 改掉，並在 EasyEDA「MCP → 設定 server 位址…」改成同一個埠。
+
+## 預設埠
+
+預設埠是 **18625**（0.1.2 起；之前是 49625）。49152 以上是 Windows 的動態埠範圍，系統隨時可能把它分配給別的程式的連線，固定埠放在這個範圍外比較不會撞到。改埠：server 用環境變數 `EASYEDA_MCP_PORT`，擴充用選單「MCP → 設定 server 位址…」。
 
 ## 心跳與提示
 

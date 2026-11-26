@@ -13,7 +13,7 @@ import extensionConfig from '../extension.json' with { type: 'json' };
 
 const BRIDGE_VERSION = extensionConfig.version;
 const WS_ID = 'easyeda-mcp-bridge';
-const DEFAULT_URL = 'ws://127.0.0.1:49625';
+const DEFAULT_URL = 'ws://127.0.0.1:18625';
 const RECONNECT_MS = 3000;
 
 let serviceUrl = DEFAULT_URL;

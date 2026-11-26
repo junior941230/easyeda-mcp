@@ -133,7 +133,7 @@ const eda = new Proxy(
 				// 實機行為：連線仍活著時再 register，EasyEDA 也會再呼叫 connected 回呼
 				if (sockets[id] && sockets[id].readyState === 1) return void onConn?.();
 				if (sockets[id] && sockets[id].readyState === 0) return;
-				// 擴充預設連 49625；測試改導到 PORT，避免與實際執行中的 server 衝突
+				// 擴充預設連 18625；測試改導到 PORT，避免與實際執行中的 server 衝突
 				const ws = new WebSocket(url.replace(/:\d+$/,':' + PORT));
 				sockets[id] = ws;
 				ws.on('open', () => onConn?.());
