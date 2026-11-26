@@ -1,0 +1,80 @@
+{
+	"name": "easyeda-mcp-bridge",
+	"uuid": "95a91105b4d84d938c6dd2a60544bd83",
+	"displayName": "EasyEDA MCP Bridge",
+	"description": "讓本機的 MCP server（例如 Claude Code）透過 WebSocket 操作 PCB 編輯器",
+	"version": "0.1.1",
+	"publisher": "local",
+	"engines": {
+		"eda": "^3.2.0"
+	},
+	"license": "MIT",
+	"repository": {
+		"type": "extension-store",
+		"url": "https://github.com/junior941230/easyeda-mcp"
+	},
+	"categories": "Other",
+	"keywords": [
+		"MCP",
+		"AI",
+		"PCB"
+	],
+	"images": {
+		"logo": "./images/logo.png"
+	},
+	"homepage": "https://github.com/junior941230/easyeda-mcp",
+	"bugs": "https://github.com/junior941230/easyeda-mcp/issues",
+	"activationEvents": {
+		"onStartupFinished": true
+	},
+	"entry": "./dist/index",
+	"dependentExtensions": {},
+	"headerMenus": {
+		"home": [
+			{
+				"id": "easyedaMcpHome",
+				"title": "MCP",
+				"menuItems": [
+					{
+						"id": "mcpConnectHome",
+						"title": "連線 MCP server",
+						"registerFn": "mcpConnect"
+					},
+					{
+						"id": "mcpStatusHome",
+						"title": "連線狀態",
+						"registerFn": "mcpStatus"
+					}
+				]
+			}
+		],
+		"pcb": [
+			{
+				"id": "easyedaMcpPcb",
+				"title": "MCP",
+				"menuItems": [
+					{
+						"id": "mcpConnect",
+						"title": "連線 MCP server",
+						"registerFn": "mcpConnect"
+					},
+					{
+						"id": "mcpDisconnect",
+						"title": "中斷連線",
+						"registerFn": "mcpDisconnect"
+					},
+					{
+						"id": "mcpStatus",
+						"title": "連線狀態",
+						"registerFn": "mcpStatus"
+					},
+					{
+						"id": "mcpSetPort",
+						"title": "設定 server 位址…",
+						"registerFn": "mcpSetPort"
+					}
+				]
+			}
+		]
+	}
+}
